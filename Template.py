@@ -15,21 +15,21 @@ screenSize(1000, 750)
 setBackgroundImage(["background-end.jpg", "images/background-start.jpeg"])
 
 # Creates the necessary sprites. Again placeholder image locations
-main = makeSprite("Mario.jpg")
-goomba = makeSprite("goomba.png")
-goomba2 = makeSprite("goomba.png")
-flag = makeSprite("flag.png")
+main = makeSprite("[Main Char Placeholder]")
+ene = makeSprite("[Enemy Placeholder2]")
+ene2 = makeSprite("[Enemy Placeholder2]")
+flag = makeSprite("[Flag Place]")
 
 # These make sure that the sprite aligns with the background. Change these if different pictures are used
-transformSprite(goomba, 0, 0.1)
-transformSprite(goomba2, 0, 0.1)
+transformSprite(ene, 0, 0.1)
+transformSprite(ene2, 0, 0.1)
 transformSprite(main, 0, 0.1, hflip=True)
 transformSprite(flag, 0, 0.45)
 # Location stuff
 # Code:
 # pos = position
-# g = goomba
-# g2 = goomba2
+# g = ene
+# g2 = ene2
 # f = flag
 # Add and change as per convinience. A list could be used to reference multiple enemies if need be
 xpos = 0
@@ -71,13 +71,13 @@ endlabel = makeLabel("You have lost. Press Esc to leave", 40, 250, 188)
 
 # Finally we move the sprites to correct locations and show them onscreen
 moveSprite(main, xpos, ypos)
-moveSprite(goomba, gxpos, gypos)
-moveSprite(goomba2, g2xpos, g2ypos)
+moveSprite(ene, gxpos, gypos)
+moveSprite(ene2, g2xpos, g2ypos)
 # No Special values since flag won't change pos
 moveSprite(flag, 200, 105)
 showSprite(main)
-showSprite(goomba)
-showSprite(goomba2)
+showSprite(ene)
+showSprite(ene2)
 showSprite(flag)
 
 
@@ -180,15 +180,15 @@ while True:
     # It seems annoying for multiple enemies.
     moveSprite(main, xpos, ypos)
     if onscreen[0] and onscreen[1]:
-        moveSprite(goomba, gxpos, gypos)
-        moveSprite(goomba2, g2xpos, g2ypos)
+        moveSprite(ene, gxpos, gypos)
+        moveSprite(ene2, g2xpos, g2ypos)
     elif onscreen[0] == False:
-        moveSprite(goomba2, g2xpos, g2ypos)
-        hideSprite(goomba)
+        moveSprite(ene2, g2xpos, g2ypos)
+        hideSprite(ene)
         gxpos = gypos = 1000
     elif onscreen[1] == False:
-        moveSprite(goomba, gxpos, gypos)
-        hideSprite(goomba2)
+        moveSprite(ene, gxpos, gypos)
+        hideSprite(ene2)
         g2ypos = g2ypos = 1000
 
     # If you've killed an enemy, this ensures you get the boost
